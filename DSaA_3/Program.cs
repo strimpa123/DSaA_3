@@ -16,35 +16,35 @@ namespace DSaA_3
                 bool numCheck = true;
                 bool selectChoice = true;
                 string Mode = "";
-                int[] table = new int[100];
+                int[] table = new int[100];               // Creates a 100 index array [Box Shape]
                 int numUserinput = 0;
                 Random intRnd = new Random();
 
-                for (int i = 0; i < table.Length; i++) {  // This is the Loop that assigns a random number element to each index and prints it out
+                for (int i = 0; i < table.Length; i++) {  // This is the Loop that assigns a random number element to each index and prints it out [Box Shape]
                     table[i] = intRnd.Next(0, 10);
                     Console.Write($"[{table[i]}] ");
                 }
 
                 Console.Write("\n\nPlease Input a Number from [0 - 9] you want to Find: ");
-                while (numCheck) {                       // This loop is reponsible for checking the user input for the number
+                while (numCheck) {                                                           // This loop is reponsible for checking the user input for the number [Diamond Shape]
                     numUserinput = 0;
-                    string firstUserinput = Console.ReadLine();
+                    string firstUserinput = Console.ReadLine();                              // For user Number Choice [Rhombus Shape]
 
-                    if (int.TryParse(firstUserinput, out numUserinput) == true) {  // This checks if the input is a integer
+                    if (int.TryParse(firstUserinput, out numUserinput) == true) {            // This checks if the input is a Valid integer [Diamond Shape]
                         if (numUserinput <= 9)
                             numCheck = false;
                         else
-                            Console.Write("\nPlease Input a Number Between [0 - 9] only : ");
+                            Console.Write("\nPlease Input a Number Between [0 - 9] only : "); // Error for Invalid Input [Rhombus Shape]
                     }
                     else
                         Console.Write("\nPlease Input a Valid Integer: ");
                 }
 
-                // While this, this is reponsible for checking the user input on the mode
+                // While this, this is reponsible for checking the user input on the mode  [Diamond Shape]
                 // There are 2 mode whether it is a first instance or all instance
                 Console.Write("\nPlease Type [1] for First Instance or [2] for All Instance: ");
                 while (selectChoice) {
-                    string choiceUserinput = Console.ReadLine();
+                    string choiceUserinput = Console.ReadLine();                     // For User Choice of Mode [Rhombus Shape]
                     if (choiceUserinput == "1") {
                         selectChoice = false;
                         Mode = "1";
@@ -53,41 +53,41 @@ namespace DSaA_3
                         selectChoice = false; Mode = "2";
                     }
                     else
-                        Console.Write("\nPlease Input a Valid Mode: ");
+                        Console.Write("\nPlease Input a Valid Mode: ");              // Error for Invalid Input [Rhombus Shape]
                 }
 
                 // And here is the main logic where it checks each element
-                // It also assigns them a color appropriately base on the mode chosen
+                // It also assigns them a color appropriately base on the mode chosen   
 
                 Console.Clear();
-                if (Mode == "1") {  // This is for First Instance Mode
+                if (Mode == "1") {   // This is for First Instance Mode  [Diamond Shape]
                     int insCount = 0;
                     for (int i = 0; i < table.Length; i++) {
-                        if (table[i] == numUserinput) {
-                            insCount++;
-                            if (insCount == 1) // Here it checks if it is the First Instance and assigns the Color Green
-                                Console.ForegroundColor = ConsoleColor.Green;
-                            else               // If not, it colors it red
-                                Console.ForegroundColor = ConsoleColor.Red;
+                        if (table[i] == numUserinput) {                              // Here if User Input and Element Match [Diamond Shape]
+                            insCount++; 
+                            if (insCount == 1)                                       // Checks For Is first instance [Diamond Shape]
+                                Console.ForegroundColor = ConsoleColor.Green;        // If First Instance colors it Green [Box Shape]
+                            else                                          
+                                Console.ForegroundColor = ConsoleColor.Red;          // If not, it colors it red [Box Shape] 
                         }
-                        else                   // If it is not a match then it just colors the text default
+                        else                                                         
                             Console.ResetColor();
-                        Console.Write($"[{table[i]}] ");
+                        Console.Write($"[{table[i]}] ");                              // If it is not a match then it just colors the text default [Box Shape]
                     }
                 }
-                else { // This is for All Instance Mode
+                else {             // This is for All Instance Mode
                     for (int i = 0; i < table.Length; i++) {
-                        if (table[i] == numUserinput) // Here it checks if the element is same as the userinput then colors it green
+                        if (table[i] == numUserinput)                                 // Here if User Input and Element Match [Diamond Shape]
                             Console.ForegroundColor = ConsoleColor.Green;
                         else
-                            Console.ResetColor();      // and default color if not a match
+                            Console.ResetColor();                                      // and default color if not a match [Box Shape]
                         Console.Write($"[{table[i]}] ");
                     }
                 }
                 Console.ResetColor();
-                Console.WriteLine("\n\nDo you Want to Repeat? Type Y/Yes");
+                Console.WriteLine("\n\nDo you Want to Repeat? Type Y/Yes"); // User Input for Retry [Rhombus Shape]
                 string userRepeat = Console.ReadLine().ToUpper();
-                if (userRepeat != "Y" && userRepeat != "YES") // This just checks the input of the user if it wants to repeat or not
+                if (userRepeat != "Y" && userRepeat != "YES") // This just checks the input of the user if it wants to repeat or not [Diamond Shape]
                     main = false;
    
             }
