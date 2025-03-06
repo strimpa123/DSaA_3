@@ -78,7 +78,7 @@ namespace DSaA_3
                 else {             // This is for All Instance Mode
                     for (int i = 0; i < table.Length; i++) {
                         if (table[i] == numUserinput)                                 // Here if User Input and Element Match [Diamond Shape]
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.Green;             // If Match Colors it Green [Box Shape]
                         else
                             Console.ResetColor();                                      // and default color if not a match [Box Shape]
                         Console.Write($"[{table[i]}] ");
